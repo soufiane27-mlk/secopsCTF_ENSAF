@@ -5,32 +5,32 @@
 
 ## 📜 Challenge Description
 
-We are given a Flask web application with the following important part:
+We are given a python web application with the following important part:
 
-```python
-config = request.form.get("config", "")
-try:
-    data = yaml.load(config, Loader=yaml.Loader)
-    output = str(data)
-except Exception as e:
-    output = f"Error parsing YAML: {e}"
+![index.html](image.png)
+
+a textarea asking for YAML configs format, 
+if we submit a simple YAML code:
+```yaml
+name: "John Doe"
+age: 30
+is_active: true
+address:
+  street: "123 Main St"
+  city: "Anytown"
+  zip: "12345"
 ```
-The user input config is parsed directly using yaml.load with yaml.Loader.
+the application process it and renders it to the user, very basic.
 
-## 📥 Code Analysis
-
-The vulnerable line is:
-
-```python
-data = yaml.load(config, Loader=yaml.Loader)
-```
-yaml.load without SafeLoader is dangerous because it can deserialize arbitrary Python objects.
-
-If the user provides a malicious YAML input, it can execute functions or create objects.
+![parsed YAML](image-1.png)
 
 ### 🧠 Exploitation Strategy
 
-Using PyYAML's object deserialization, you can:
+If we check whether the web application is vulnerable to YAML injection, we get this:
+
+![alt text](image-2.png)
+
+Using PyYAML's object deserialization, we can:
 
     Execute arbitrary Python functions
 
