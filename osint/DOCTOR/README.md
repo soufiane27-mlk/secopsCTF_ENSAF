@@ -1,4 +1,4 @@
-Challenge Description
+ Challenge Description
 
 A close friend recently traveled to Asia for facial surgery.
 He mentioned finding one of the best plastic surgeons, with 26 years of experience.
@@ -21,7 +21,7 @@ SECOPS{Kami_Soon-Hom}
 The first step is to use exiftool on the photo to extract metadata.
 From the metadata, we find GPS coordinates embedded in the image.
 
-![exiftool](gps.png)
+![exiftool](../images/gps.png)
 
 🌍 Step 2: Investigating the Location
 
