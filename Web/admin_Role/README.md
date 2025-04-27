@@ -14,6 +14,10 @@ Do what ever you want just find the flag
 > **Author:** s0ufm3l
 ---
 
+## 🧠 Exploitation Strategy
+
+first we visit the wab page, the first thing we face is a login form.
+
 ![login form](images/image.png)
 
 the source code of the `/login`
