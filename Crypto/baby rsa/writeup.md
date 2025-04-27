@@ -1,4 +1,4 @@
-# 🛡️ Challenge Writeup — RSA Leak
+# 🛡️ Challenge Writeup — baby RSA
 
 ---
 

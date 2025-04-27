@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CTF Challenge - Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .welcome {
+            font-size: 1.5rem;
+        }
+
+        .admin-link {
+            display: none;
+        }
+
+        .user-info {
+            margin-bottom: 1rem;
+        }
+
+        .logout {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Dashboard</h1>
+            <button class="logout" onclick="logout()">Logout</button>
+        </div>
+        <div class="user-info">
+            <div class="welcome">Welcome, {{ username }}!</div>
+        </div>
+        <div class="content">
+            <p>This is your secure dashboard.</p>
+            {% if role == 'admin' %}
+            <a href="/admin">Access Admin Panel</a>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function logout() {
+            document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            window.location.href = "/login";
+        }
+
+        window.onload = function () {
+            console.log("Dashboard loaded");
+            console.log("Cookies: " + document.cookie);
+        };
+
+    </script>
+</body>
+
+</html>

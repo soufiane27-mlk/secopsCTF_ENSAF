@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Config Parser</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            color: #333;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #444;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 95%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: monospace;
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #666;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        pre {
+            background-color: #e6e6e6;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Config Parser</h1>
+    <form method="POST">
+        <textarea name="config" rows="10" placeholder="Enter YAML here..."></textarea><br>
+        <input type="submit" value="Parse">
+    </form>
+
+    {% if output %}
+    <h2>Parsed Config:</h2>
+    <pre>{{ output }}</pre>
+    {% endif %}
+</body>
+
+</html>
