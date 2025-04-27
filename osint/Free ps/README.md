@@ -1,16 +1,18 @@
-Challenge Description
+🏙️ Challenge Description
 
-can u identify the city and the contry from the picture
-the flag format : SECOPS{City_Contry}
-example : SECOPS{Al-Riyadh_Saudi_Arabi}
-Author: YasseX
+🔍 Can you identify the city and the country from the picture?
 
-here is the picture 
+Flag format:
+SECOPS{City_Country}
 
+📌 Example:
+SECOPS{Al-Riyadh_Saudi_Arabia}
+
+✍️ Author: YasseX
+🖼️ Here is the picture:
 ![mosque](../images/Mosque.jpg)
 
-if we search with google photo we can see directly that is Al-Quds
-
-so the flag will be 
+If we search using Google Image, we quickly find out that the location is Al-Quds!
+Final Flag:
 
 SECOPS{Al-Quds_Palestine}
