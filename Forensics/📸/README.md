@@ -37,22 +37,23 @@ PhishTool also highlights suspicious elements, checks for authentication issues 
 
 we load the email to phishtools:
 
-![phishtools](image.png)
+![phishtools](image/image.png)
 
 We check the attachment and find that we have been sent an executable file named `Italy_Memories_IMG_4421.exe`. This is the suspicious part of the email and should be thoroughly investigated.
 
-![executable](image-1.png)
+![executable](image/image-1.png)
 
 We can download the file and investigate it further, but PhishTool provides the ability to view the strings directly, which is all we need to solve this challenge.
 
-![investigate](image-2.png)
+![investigate](image/image-2.png)
 
 We can see a link pointing to a GitHub page that we should visit.
 
-![a link in strings](image-3.png)
+![a link in strings](image/image-3.png)
 
 The page contains a payload, but it is actually the flag.
+> You can find the following page in wayback machine `https://raw.githubusercontent.com/soufiane27-mlk/secopsCTF_malware/refs/heads/main/payload`
 
-![hexed flag](image-4.png)
+![hexed flag](image/image-4.png)
 
 > **flag:** SECOPS{YoU_4re_A_gr3at_email_an4lyst}
