@@ -4,13 +4,19 @@
 ## 📜 Challenge Description
 
 Do what ever you want just find the flag 
+
+---
+
+## 🔗 Connection Details
+
+- Host: `http://ensafacademia.ddns.net:5010`
  
 > **Author:** s0ufm3l
 ---
 
 ![login form](images/image.png)
 
-- the source code of the `/login`
+the source code of the `/login`
 
 ![default creds in source code](images/image-1.png)
 
@@ -52,11 +58,11 @@ after modifying the token we get the admin dashboard, with a link to the admin p
 
 ![admin dashboard](images/image-6.png)
 
-- admin panel
+The admin panel
 
 ![admin panel](images/image-7.png)
 
-- The site is under development, but there is a field that fetches some data without any visible parameters in the source code. We use `arjun` to fuzz for hidden parameters (don't forget to add the `Cookie: token=JWT_TOKEN` header; otherwise, you will be redirected to the login form).
+The site is under development, but there is a field that fetches some data without any visible parameters in the source code. We use `arjun` to fuzz for hidden parameters (don't forget to add the `Cookie: token=JWT_TOKEN` header; otherwise, you will be redirected to the login form).
 
 ![fuzzing for params](images/image-8.png)
 
