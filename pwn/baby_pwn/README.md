@@ -1,10 +1,10 @@
-Challenge Description
+#Challenge Description
 
 This challenge is designed to introduce you to the world of binary exploitation (pwn).
 You only need a basic understanding of data structures.
 Author: YasseX
 
-🔎 Step 1: Reversing the Binary with Ghidra
+#🔎 Step 1: Reversing the Binary with Ghidra
 
 The first thing we did was open the binary in Ghidra, a popular reverse engineering tool.
 After decompiling the main function, we obtained the following code:
@@ -26,7 +26,7 @@ Let's walk through it:
     If both conditions are true, it calls get_flag(), otherwise it prints a "Hardluck" message.
 
 
-⚡ Step 2: Identifying the Vulnerability
+#⚡ Step 2: Identifying the Vulnerability
 
 Here, we clearly notice a buffer overflow vulnerability:
 
@@ -34,7 +34,7 @@ Here, we clearly notice a buffer overflow vulnerability:
 
     As a result, we can overflow the buffer and overwrite the memory areas after it — specifically the variables x and y!
 
-step 3: writing exploit and get the flag
+#step 3: writing exploit and get the flag
 
 from pwn import *
 
@@ -51,4 +51,4 @@ io.interactive()
 
 ![exploit](../assets/pic3.png)
 
-final flag : SECOPS{d4t4_s7ructur_w1th_0v3rl0w!!}
+#final flag : SECOPS{d4t4_s7ructur_w1th_0v3rl0w!!}
