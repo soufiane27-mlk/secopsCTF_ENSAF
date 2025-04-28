@@ -17,7 +17,7 @@ To solve the challenge, we need to:
 
 Step-by-Step Exploit
 
-#1. Leaking main address and stack canary (Format String Attack)
+# 1. Leaking main address and stack canary (Format String Attack)
 
 First, we abuse a format string vulnerability to leak two important values:
 The address of the main function (to calculate the binary base address and defeat ASLR).
@@ -36,7 +36,7 @@ From here:
 main gives us the base address of the binary.
 canary is the random stack canary value protecting the stack.
 
-#2. Calculating Important Addresses
+# 2. Calculating Important Addresses
 Since the binary is position-independent (PIE enabled), we calculate actual addresses by knowing the offsets:
 binary_base = main - main_offset
 getchar = getchar_got_offset + binary_base
@@ -51,7 +51,7 @@ puts (in PLT)
 pop rdi; ret gadget
 ret gadget (for stack alignment if needed)
 
-#3. Leaking a libc address
+# 3. Leaking a libc address
 Next, we prepare a payload to leak the real address of getchar in libc using puts:
 payload = b'Y' * 104
 payload += p64(canary)
@@ -66,7 +66,7 @@ This sends the address of getchar to stdout using puts, allowing us to calculate
 getchar_libc = u64(io.recvline().strip().ljust(8, b"\x00"))
 libc_base = getchar_libc - getchar_libc_offset
 
-#4. Final ret2libc Attack
+# 4. Final ret2libc Attack
 With the libc base address known, we can find:
 
 system function
@@ -87,7 +87,7 @@ payload += p64(system_address)
 This calls system("/bin/sh"), giving us a shell!
 
 
-#Here is the full exploit used to solve the challenge:
+# Here is the full exploit used to solve the challenge:
 
 from pwn import *
 
@@ -169,7 +169,7 @@ io.sendline(payload)
 io.interactive()
 
 
-#Summary
+# Summary
 
 Step			Purpose
 Format String Leak	Leak main address and canary
@@ -178,4 +178,4 @@ Leak Libc Address	Leak getchar and calculate libc base
 ret2libc		Call system("/bin/sh") for a shell
 
 
-#flag : SECOPS{r3t2libc_1s_v3ry_c00l_att4ck}
+# Flag : SECOPS{r3t2libc_1s_v3ry_c00l_att4ck}
